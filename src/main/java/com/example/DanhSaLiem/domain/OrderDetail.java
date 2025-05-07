@@ -1,9 +1,31 @@
 package com.example.DanhSaLiem.domain;
 
+import jakarta.persistence.*;
+import lombok.*;
+
+@Entity
+@Table(name = "order_detail")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class OrderDetail {
-    public int id;
-    public Long order_id;
-    public Long product_id;
-    public Long quantity;
-    public Double price;  
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column(name = "order_id", nullable = false)
+    private int orderId;
+
+    @Column(name = "product_id", nullable = false)
+    private int productId;
+
+    @Column(nullable = false)
+    private int quantity;
+
+    @Column(nullable = false)
+    private float price;
+    
 }
